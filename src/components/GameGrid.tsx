@@ -22,7 +22,14 @@ interface GameGridProps {
 function GameGrid({ selectedGenre }: GameGridProps) {
   // usestate
   const { data, error, isLoading } = useGame(selectedGenre);
-  const skeletons = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const skeletons = [];
+
+  for (let i = 0; i < 25; i++) {
+    skeletons.push(i);
+  }
+
+  console.log("--- skeletons---");
+  console.log(skeletons);
 
   return (
     <>
