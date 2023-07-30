@@ -3,6 +3,7 @@ import useGame from "../hooks/useGame";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
+import { Genre } from "../hooks/useGenre";
 
 interface Game {
   id: number;
@@ -14,9 +15,13 @@ interface Games {
   results: Game[];
 }
 
-function GameGrid() {
+interface GameGridProps {
+  selectedGenre: Genre | null;
+}
+
+function GameGrid({ selectedGenre }: GameGridProps) {
   // usestate
-  const { data, error, isLoading } = useGame();
+  const { data, error, isLoading } = useGame(selectedGenre);
   const skeletons = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
