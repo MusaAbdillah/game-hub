@@ -1,5 +1,5 @@
 import { SimpleGrid, Skeleton, Text } from "@chakra-ui/react";
-import useGame from "../hooks/useGame";
+import useGame, { Platform } from "../hooks/useGame";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
@@ -17,11 +17,12 @@ interface Games {
 
 interface GameGridProps {
   selectedGenre: Genre | null;
+  selectedPlatform: Platform | null;
 }
 
-function GameGrid({ selectedGenre }: GameGridProps) {
+function GameGrid({ selectedGenre, selectedPlatform }: GameGridProps) {
   // usestate
-  const { data, error, isLoading } = useGame(selectedGenre);
+  const { data, error, isLoading } = useGame(selectedGenre, selectedPlatform);
   const skeletons = [];
 
   for (let i = 0; i < 25; i++) {
