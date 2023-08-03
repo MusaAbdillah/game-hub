@@ -11,6 +11,7 @@ import PlatformSelector from "./components/PlatformSelector";
 export interface GameQuery {
   Genre: Genre | null;
   Platform: Platform | null;
+  Ordering: string;
 }
 
 function App() {
@@ -48,13 +49,19 @@ function App() {
       </Show>
       <GridItem area="main">
         <HStack spacing={5} paddingLeft={10}>
+          Loading
           <MenuSelector
             selectedPlatform={gameQuery.Platform}
             onSelectPlatform={(platform) =>
               setGameQuery({ ...gameQuery, Platform: platform })
             }
           />
-          <PlatformSelector />
+          <PlatformSelector
+            selectedSort={gameQuery.Ordering}
+            onSelectSort={(sort) =>
+              setGameQuery({ ...gameQuery, Ordering: sort })
+            }
+          />
         </HStack>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
