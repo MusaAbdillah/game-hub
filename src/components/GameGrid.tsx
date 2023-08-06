@@ -32,28 +32,27 @@ function GameGrid({ gameQuery }: GameGridProps) {
   console.log("--- skeletons---");
   console.log(skeletons);
 
+  if (error) return <Text paddingY={5}>{error}</Text>;
+
   return (
-    <>
-      {error && <Text>{error}</Text>}
-      <SimpleGrid
-        columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
-        spacing={6}
-        // padding={10}
-        paddingY={5}
-      >
-        {isLoading &&
-          skeletons.map((skeleton) => (
-            <GameCardContainer>
-              <GameCardSkeleton key={skeleton} />
-            </GameCardContainer>
-          ))}
-        {data.map((game) => (
+    <SimpleGrid
+      columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+      spacing={6}
+      // padding={10}
+      paddingY={5}
+    >
+      {isLoading &&
+        skeletons.map((skeleton) => (
           <GameCardContainer>
-            <GameCard key={game.id} game={game} />
+            <GameCardSkeleton key={skeleton} />
           </GameCardContainer>
         ))}
-      </SimpleGrid>
-    </>
+      {data.map((game) => (
+        <GameCardContainer>
+          <GameCard key={game.id} game={game} />
+        </GameCardContainer>
+      ))}
+    </SimpleGrid>
   );
 }
 
