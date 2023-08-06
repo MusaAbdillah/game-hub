@@ -1,6 +1,7 @@
 import {
   Button,
   HStack,
+  Heading,
   Image,
   List,
   ListItem,
@@ -21,6 +22,9 @@ function GenreList({ selectedGenre, onSelectGenre }: GenreListProps) {
   if (isLoading) return <Spinner />;
   return (
     <>
+      <Heading fontSize="2xl" marginBottom={3}>
+        Genre
+      </Heading>
       <List>
         {data.map((genre) => (
           <ListItem key={genre.id} paddingY="5px">
@@ -28,6 +32,7 @@ function GenreList({ selectedGenre, onSelectGenre }: GenreListProps) {
               <Image
                 boxSize="32px"
                 borderRadius={8}
+                objectFit="cover"
                 src={getCroppedImage(genre.image_background)}
               />
               <Button
@@ -39,6 +44,8 @@ function GenreList({ selectedGenre, onSelectGenre }: GenreListProps) {
                 }}
                 variant="link"
                 fontSize="lg"
+                whiteSpace="normal"
+                textAlign="left"
               >
                 {genre.name}
               </Button>
