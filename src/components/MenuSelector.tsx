@@ -22,7 +22,7 @@ function MenuSelector({
         {selectedPlatform?.name || "Platforms"}
       </MenuButton>
       <MenuList>
-        {data.map((data) => (
+        {data?.results.map((data) => (
           <MenuItem key={data.id} onClick={() => onSelectPlatform(data)}>
             {data.name}
           </MenuItem>
