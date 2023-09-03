@@ -32,7 +32,7 @@ function GameGrid({ gameQuery }: GameGridProps) {
   console.log("--- skeletons---");
   console.log(skeletons);
 
-  if (error) return <Text paddingY={5}>{error}</Text>;
+  if (error) return <Text paddingY={5}>{error.message}</Text>;
 
   return (
     <SimpleGrid
@@ -47,7 +47,7 @@ function GameGrid({ gameQuery }: GameGridProps) {
             <GameCardSkeleton key={skeleton} />
           </GameCardContainer>
         ))}
-      {data.map((game) => (
+      {data?.results.map((game) => (
         <GameCardContainer>
           <GameCard key={game.id} game={game} />
         </GameCardContainer>
