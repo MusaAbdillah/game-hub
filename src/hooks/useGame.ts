@@ -3,7 +3,7 @@ import apiClient, { CanceledError } from "../services/apiClient";
 import useData, { FetchResponse } from "./useData";
 import { Genre } from "./useGenre";
 import { GameQuery } from "../App";
-import { Query, useQuery } from "@tanstack/react-query";
+import { Query, useInfiniteQuery, useQuery } from "@tanstack/react-query";
 
 export interface Platform {
   id: number;
@@ -32,9 +32,9 @@ export interface Game {
 
 // with React Query
 
-const useGame = (gameQuery: GameQuery) => useQuery<FetchResponse<Game>, Error>({
+const useGame = (gameQuery: GameQuery) => useInfiniteQuery<FetchResponse<Game>, Error>({
   queryKey:["games", gameQuery],
-  queryFn:  () => 
+  queryFn:  ({pageParam = 1}) => 
     apiClient
       .get<FetchResponse<Game>>("/games", 
           {     
@@ -42,11 +42,15 @@ const useGame = (gameQuery: GameQuery) => useQuery<FetchResponse<Game>, Error>({
               genres: gameQuery.Genre?.id, 
               parent_platforms: gameQuery.Platform?.id, 
               ordering: gameQuery.Ordering, 
-              search: gameQuery.SearchText
+              search: gameQuery.SearchText,
+              page: pageParam
             }
           }
       )
-      .then(res => res.data)
+      .then(res => res.data),
+  getNextPageParam: (lastPage, allPages) => {
+    return lastPage.next ? allPages.length + 1 : undefined;
+  },
 })
 
 export default useGame;
