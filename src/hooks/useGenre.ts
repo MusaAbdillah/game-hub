@@ -22,7 +22,7 @@ const useGenre = () => useQuery({
             .get<FetchResponse<Genre>>("/genres")
             .then(res => res.data),
     staleTime: 24 * 60 * 60 * 1000, //24h
-    initialData: {count: genres.length, results: genres}, // mocking backend response 
+    initialData: {count: genres.length, next: "", results: genres}, // mocking backend response 
 }); //with react query
 
 export default useGenre;
