@@ -4,6 +4,7 @@ import PlatformList from "./PlatformList";
 import CriticScore from "./CriticScore";
 import getCroppedImage from "../services/getCroppedImage";
 import Emoji from "./Emoji";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 interface GameCardProps {
   game: Game;
