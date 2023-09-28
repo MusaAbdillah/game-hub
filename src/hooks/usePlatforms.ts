@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import useData, { FetchResponse } from "./useData";
 import apiClient from "../services/apiClient";
 import { platforms } from "../data/platforms";
+import ms from 'ms';
+
 
 interface Platform {
     id: number;
@@ -17,7 +19,7 @@ const usePlatforms = () => useQuery({
         apiClient
             .get<FetchResponse<Platform>>("/platforms/lists/parents")
             .then(res => res.data),
-    staleTime: 24 * 60 * 60 * 1000, //24h
+    staleTime: ms('24h')  , //24h
     initialData: {count: platforms.length, next: "", results: platforms} 
     
 }); //with react query

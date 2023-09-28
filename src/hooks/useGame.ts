@@ -39,8 +39,8 @@ const useGame = (gameQuery: GameQuery) => useInfiniteQuery<FetchResponse<Game>, 
       .get<FetchResponse<Game>>("/games", 
           {     
             params: {
-              genres: gameQuery.Genre?.id, 
-              parent_platforms: gameQuery.Platform?.id, 
+              genres: gameQuery.GenreId, 
+              parent_platforms: gameQuery.PlatformId, 
               ordering: gameQuery.Ordering, 
               search: gameQuery.SearchText,
               page: pageParam
