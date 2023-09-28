@@ -3,7 +3,7 @@ import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import { useState } from "react";
-import { Genre } from "./hooks/useGenre";
+import { Genre } from "./hooks/useGenres";
 import MenuSelector from "./components/MenuSelector";
 import { Platform } from "./hooks/useGame";
 import PlatformSelector from "./components/PlatformSelector";
@@ -55,7 +55,7 @@ function App() {
       </Show>
       <GridItem area="main">
         <Box padding={5}>
-          <GameHeading GameQuery={gameQuery} />
+          <GameHeading gameQuery={gameQuery} />
           <Flex>
             <Box marginRight={5}>
               <MenuSelector

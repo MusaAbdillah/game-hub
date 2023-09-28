@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import apiClient, { CanceledError } from "../services/apiClient";
 import useData, { FetchResponse } from "./useData";
-import { Genre } from "./useGenre";
+import { Genre } from "./useGenres";
 import { GameQuery } from "../App";
 import { Query, useInfiniteQuery, useQuery } from "@tanstack/react-query";
 

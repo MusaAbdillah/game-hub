@@ -5,19 +5,19 @@ import usePlatform from "../hooks/usePlatform";
 import useGenre from "../hooks/useGenre";
 
 interface GameHeadingProps {
-  GameQuery: GameQuery;
+  gameQuery: GameQuery;
 } 
 
-function GameHeading({ GameQuery }: GameHeadingProps) {
+function GameHeading({ gameQuery }: GameHeadingProps) {
 
-  const { data: genres } = useGenre();
-  const selectedGenre = genres?.results.find((g) => g.id === GameQuery.GenreId)
+  const genre = useGenre(gameQuery.GenreId);
 
-  const { data: platforms } = usePlatform();
-  const selectedPlatform = platforms?.results.find((p) => p.id === GameQuery.PlatformId)
+  const platform = usePlatform(gameQuery.PlatformId);
 
-  const gameHeading = `${selectedGenre?.name || ""} ${
-    selectedPlatform?.name || ""
+  
+
+  const gameHeading = `${genre?.name || ""} ${
+    platform?.name || ""
   } Games`;
   return (
     <Heading as="h1" paddingY={3}>
