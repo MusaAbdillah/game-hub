@@ -5,14 +5,15 @@ import { Platform } from "../hooks/useGame";
 
 interface MenuSelectorProps {
   onSelectPlatform: (platform: Platform) => void;
-  selectedPlatform: Platform | null;
+  selectedPlatformId?: number;
 }
 
 function MenuSelector({
   onSelectPlatform,
-  selectedPlatform,
+  selectedPlatformId,
 }: MenuSelectorProps) {
-  const { data, error } = usePlatform();
+  const { data: platforms, error } = usePlatform();
+  const selectedPlatform = platforms?.results.find((p) => p.id === selectedPlatformId)
 
   if (error) return null;
 
@@ -22,7 +23,7 @@ function MenuSelector({
         {selectedPlatform?.name || "Platforms"}
       </MenuButton>
       <MenuList>
-        {data?.results.map((data) => (
+        {platforms?.results.map((data) => (
           <MenuItem key={data.id} onClick={() => onSelectPlatform(data)}>
             {data.name}
           </MenuItem>

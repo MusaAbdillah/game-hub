@@ -10,8 +10,8 @@ import PlatformSelector from "./components/PlatformSelector";
 import GameHeading from "./components/GameHeading";
 
 export interface GameQuery {
-  Genre: Genre | null;
-  Platform: Platform | null;
+  GenreId?: number;
+  PlatformId?: number;
   Ordering: string;
   SearchText: string;
 }
@@ -46,9 +46,9 @@ function App() {
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>
           <GenreList
-            selectedGenre={gameQuery.Genre}
+            selectedGenreId={gameQuery.GenreId}
             onSelectGenre={(genre) => {
-              setGameQuery({ ...gameQuery, Genre: genre });
+              setGameQuery({ ...gameQuery, GenreId: genre.id });
             }}
           />
         </GridItem>
@@ -59,9 +59,9 @@ function App() {
           <Flex>
             <Box marginRight={5}>
               <MenuSelector
-                selectedPlatform={gameQuery.Platform}
+                selectedPlatformId={gameQuery.PlatformId}
                 onSelectPlatform={(platform) =>
-                  setGameQuery({ ...gameQuery, Platform: platform })
+                  setGameQuery({ ...gameQuery, PlatformId: platform.id })
                 }
               />
             </Box>
