@@ -6,11 +6,11 @@ interface NavBarProps {
   onSearch: (search: string) => void;
 }
 
-function NavBar({ onSearch }: NavBarProps) {
+function NavBar() {
   return (
     <HStack justifyContent="space-between" padding="10px">
       <Image src={logo} boxSize="60px"></Image>
-      <SearchInput onSearch={onSearch} />
+      <SearchInput/>
       <ColorModeSwitch />
     </HStack>
   );
