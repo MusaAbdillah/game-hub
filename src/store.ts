@@ -16,10 +16,13 @@ interface GameQueryStore {
 }
 
 
-create<GameQueryStore>((set) => ({
+const gameQueryStore = create<GameQueryStore>((set) => ({
     gameQuery: {},
     setSearchText: (searchText) => set((store) => ({ gameQuery: { ...store.gameQuery, searchText }})),
     setGenreId: (genreId) => set((store)  => ({ gameQuery: { ...store.gameQuery, genreId}})),
     setPlatformId: (platformId) => set((store)  => ({ gameQuery: { ...store.gameQuery, platformId}})),
     setSortOrder: (sortOrder) => set((store)  => ({ gameQuery: { ...store.gameQuery, sortOrder}}))
 }))
+
+
+export default gameQueryStore
