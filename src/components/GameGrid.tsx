@@ -22,9 +22,9 @@ interface GameGridProps {
   gameQuery: GameQuery;
 }
 
-function GameGrid({ gameQuery }: GameGridProps) {
+function GameGrid() {
   // usestate
-  const { data, error, isLoading, isFetchingNextPage, fetchNextPage, hasNextPage } = useGame(gameQuery);
+  const { data, error, isLoading, isFetchingNextPage, fetchNextPage, hasNextPage } = useGame();
   const skeletons = [];
 
   for (let i = 0; i < 25; i++) {

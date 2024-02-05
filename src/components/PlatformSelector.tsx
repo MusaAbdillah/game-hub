@@ -1,15 +1,13 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { BsChevronBarDown } from "react-icons/bs";
+import useGameQueryStore from "../store";
 
 interface PlatformSelectorProps {
   onSelectSort: (sort: string) => void;
   selectedSort: string;
 }
 
-function PlatformSelector({
-  onSelectSort,
-  selectedSort,
-}: PlatformSelectorProps) {
+function PlatformSelector() {
   const sortOrders = [
     { name: "", label: "Relevance" },
     { name: "-released", label: "Released" },
@@ -19,8 +17,11 @@ function PlatformSelector({
     { name: "-rating", label: "Rating" },
     { name: "metacritic", label: "Metacritic" },
   ];
-
+  
+  const setSelectedSort = useGameQueryStore(s => s.setSortOrder)
+  const selectedSort = useGameQueryStore(s => s.gameQuery.Ordering)
   const currentSort = sortOrders.find((o) => o.name === selectedSort);
+
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronBarDown />}>
@@ -29,7 +30,7 @@ function PlatformSelector({
       <MenuList>
         {sortOrders.map((sortOrder) => (
           <MenuItem
-            onClick={() => onSelectSort(sortOrder.name)}
+            onClick={() => setSelectedSort(sortOrder.name)}
             key={sortOrder.name}
             value={sortOrder.name}
           >
