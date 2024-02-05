@@ -1,4 +1,5 @@
 
+import { Heading, Text } from "@chakra-ui/react";
 import { isRouteErrorResponse, useRouteError } from "react-router";
 
 const ErrorPage = () => {
@@ -6,12 +7,12 @@ const ErrorPage = () => {
 
   return (
     <>
-      <h1>Oops...</h1>
-      <p>
+      <Heading>Oops...</Heading>
+      <Text>
         {
-          isRouteErrorResponse(error) ? "Invalid Page" : "Unexpected error"
+          isRouteErrorResponse(error) ? "This page does not exist" : "An unexpected error occurred"
         }
-      </p>
+      </Text>
     </>
   );
 }
