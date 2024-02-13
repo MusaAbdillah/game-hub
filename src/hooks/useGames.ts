@@ -1,28 +1,17 @@
 import React, { useEffect, useState } from "react";
 import apiClient, { CanceledError } from "../services/apiClient";
 import useData, { FetchResponse } from "./useData";
-import { Genre } from "./useGenres";
+import { Genre } from "../entities/Genre";
 import { GameQuery } from "../App";
 import { Query, useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import useGameQueryStore from "../store";
+import { Game } from "../entities/Game";
 
 export interface Platform {
   id: number;
   name: string;
   slug: string;
 }
-export interface Game {
-  id: number;
-  name: string;
-  background_image: string;
-  platforms: {platform: Platform}[] 
-  metacritic: number;
-  rating_top: number;
-  slug: string;
-  description_raw: string;
-}
-
-
 // without react query
 // const useGame = (gameQuery: GameQuery) => useData<Game>(
 //   "/games", 
