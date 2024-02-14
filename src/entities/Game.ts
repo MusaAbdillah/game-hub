@@ -8,5 +8,6 @@ export interface Game {
   metacritic: number;
   rating_top: number;
   slug: string;
+  description: string;
   description_raw: string;
 }
