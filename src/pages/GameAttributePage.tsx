@@ -16,12 +16,12 @@ const GameAttributePage = ({game}: Props) => {
         <DefinitionItemPage term="Metascore">
             <CriticScore score={game.metacritic}/>
         </DefinitionItemPage>
-        <DefinitionItemPage term="Genres"> 
+        {/* <DefinitionItemPage term="Genres"> 
             {game.genres.map(({genre}) => <Text key={genre.id}>{genre.name}</Text>)}
         </DefinitionItemPage>
         <DefinitionItemPage term="Publishers">
             {game.publishers.map(({publisher}) => <Text key={publisher.id}>{publisher.name}</Text>)}
-        </DefinitionItemPage>
+        </DefinitionItemPage> */}
     </SimpleGrid>
   )
 }
