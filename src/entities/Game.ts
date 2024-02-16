@@ -1,8 +1,8 @@
 import { Platform } from "../hooks/useGames";
-import { Genre } from "./Genre";
-import { Publisher } from "./Publisher";
+import  Genre  from "./Genre";
+import  Publisher  from "./Publisher";
 
-export interface Game {
+export default interface Game {
   id: number;
   name: string;
   background_image: string;

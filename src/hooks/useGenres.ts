@@ -3,7 +3,7 @@ import { genres } from "../data/genres";
 import apiClient from "../services/apiClient";
 import { FetchResponse } from "./useData";
 import ms from 'ms';
-import { Genre } from "../entities/Genre";
+import  Genre  from "../entities/Genre";
 
 // dynamic, data come from server
 // const useGenres = () => useData<Genre>("/genres");

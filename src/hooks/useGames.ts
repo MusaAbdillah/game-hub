@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import apiClient, { CanceledError } from "../services/apiClient";
 import useData, { FetchResponse } from "./useData";
-import { Genre } from "../entities/Genre";
+import  Genre  from "../entities/Genre";
 import { GameQuery } from "../App";
 import { Query, useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import useGameQueryStore from "../store";
-import { Game } from "../entities/Game";
+import Game  from "../entities/Game";
 
 export interface Platform {
   id: number;

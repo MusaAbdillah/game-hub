@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import ms from "ms";
 import apiClient from "../services/apiClient";
 import { FetchResponse } from "./useData";
-import { GameScreenShoot } from "../entities/GameScreenShoot";
+import  GameScreenShoot  from "../entities/GameScreenShoot";
 
 
 const useGameScreenShoot = (slug: string) => useQuery({

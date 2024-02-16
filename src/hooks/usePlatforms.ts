@@ -3,7 +3,7 @@ import useData, { FetchResponse } from "./useData";
 import apiClient from "../services/apiClient";
 import { platforms } from "../data/platforms";
 import ms from 'ms';
-import { Platform } from "../entities/Platform";
+import  Platform  from "../entities/Platform";
 
 
 // const usePlatforms = () => useData<Platform>("/platforms/lists/parents") //without react query
