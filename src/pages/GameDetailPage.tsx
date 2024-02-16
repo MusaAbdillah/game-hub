@@ -25,17 +25,18 @@ function GameDetailPage() {
   // build hook
   
   return (
-    <>
-      <Heading>{game.name}</Heading>
-      {console.log("=============game.description_raw=============")}
-      {console.log(typeof(game.description_raw))}
-      {console.log(game.description_raw)}
-      <ExpandableTextPage children={game.description_raw}/>
-      {/* <ExpandableTextPage> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</ExpandableTextPage> */}
-      <GameAttributePage game={game}/>
-      <GameTrailerPage slug={slug!}/>
-      <GameScreenShootPage slug={slug!}/>
-    </>
+    <SimpleGrid columns={{base: 1, md: 2}} spacing={5}>
+      <GridItem>
+        <Heading>{game.name}</Heading>
+        <ExpandableTextPage children={game.description_raw}/>
+        {/* <ExpandableTextPage> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</ExpandableTextPage> */}
+        <GameAttributePage game={game}/>
+      </GridItem>
+      <GridItem>
+        <GameTrailerPage slug={slug!}/>
+        <GameScreenShootPage slug={slug!}/>
+      </GridItem>
+    </SimpleGrid>
   )
 }
 
